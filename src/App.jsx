@@ -32,14 +32,9 @@ function App() {
 
       if (isPercentChanged) {
         oldScrollPercent = newScrollPercent;
-        const oldDeg = extractNumber(carLane.current.style.transform);
         const isTurningNew = oldDirection !== newDirection;
         if (isTurningNew) {
           oldDirection = newDirection;
-          if (!isTurning) {
-            const newDeg = oldDeg + 180;
-            carLane.current.style.transform = `rotate(${newDeg}deg)`;
-          }
           isTurning = true;
           timer = setTimeout(() => {
             isTurning = false;
@@ -66,6 +61,15 @@ function App() {
       scrollElement.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  useEffect(() => {
+    if (hasScrolled) {
+      const oldDeg = extractNumber(carLane.current.style.transform);
+      const newDeg = oldDeg + 180;
+      carLane.current.style.transform = `rotate(${newDeg}deg)`;
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [lane]);
 
   return (
     <div className="container">

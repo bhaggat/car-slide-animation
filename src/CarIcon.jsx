@@ -6,7 +6,7 @@ export default function CarIcon() {
       style={{
         height: "50px",
         width: "50px",
-        transform: "rotate(-90deg)",
+        transform: "rotate(90deg)",
         fill: "black",
       }}
     >

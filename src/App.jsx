@@ -84,7 +84,7 @@ function App() {
         </div>
       </div>
       <div className="scroll-section" ref={scrollSectionRef}>
-        <p>Scroll up and down to move the car and switch lanes.</p>
+        <p>Scroll up and down to move the car.</p>
         <div style={{ height: "400vh" }}></div>
       </div>
     </div>
